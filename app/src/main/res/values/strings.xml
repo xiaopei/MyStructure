@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">MyStructure</string>
+    <!--全局-->
+    <string name="app_name">myStructure</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--主要-->
+
+    <!--主页-->
+    <string name="yihua">主页</string>
+
+    <!--发现-->
+    <string name="discover">发现</string>
+
+    <!--项目-->
+    <string name="project">项目</string>
+
+    <!--上传-->
+    <string name="pulish">上传</string>
+
+    <!--我的-->
+    <string name="profile">我的</string>
 </resources>

@@ -4,18 +4,90 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
     defaultConfig {
-        applicationId "com.hxp.mystructure"
-        minSdkVersion 15
-        targetSdkVersion 24
+        minSdkVersion 14
+        targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionName "1.0.0"
+        multiDexEnabled true
+        resConfigs "zh", "en"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
+        // Define separate dev and prod product flavors.
+        develop {
+            // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
+            // to pre-dex each module and produce an APK that can be tested on
+            // Android Lollipop without time consuming dex merging processes.
+            minSdkVersion 14
+
+            applicationId "com.hxp.mystructure.develop"
+//            manifestPlaceholders = [
+//                    IGEXIN_SDK:"",              // Getui
+//                    PUSH_APPID:"",                                    // Getui
+//                    PUSH_APPKEY:"",                                   // Getui
+//                    PUSH_APPSECRET:"",                                // Getui
+//                    JPUSH_APPKEY:"",                                // JPUSH
+//            ]
+//            buildConfigField "String", "MI_PUSH_APP_ID", "\"\""
+//            buildConfigField "String", "MI_PUSH_APP_KEY", "\"\""
+//            buildConfigField "String", "ZHU_GE_APP_KEY", "\"\""
+
+
+            buildConfigField "String", "HOST", "\"http://123.57.2.153:9080\""
+        }
+
+        // 目前预上线环境的推送使用开发环境的配置，与服务器一致。 2016.04.22
+        stage {
+            minSdkVersion 14
+
+            applicationId "com.hxp.mystructure.stage"
+//            manifestPlaceholders = [
+//                    IGEXIN_SDK:"",              // Getui
+//                    PUSH_APPID:"",                                    // Getui
+//                    PUSH_APPKEY:"",                                   // Getui
+//                    PUSH_APPSECRET:"",                                // Getui
+//                    JPUSH_APPKEY:"",                                // JPUSH
+//            ]
+//            buildConfigField "String", "MI_PUSH_APP_ID", "\"\""
+//            buildConfigField "String", "MI_PUSH_APP_KEY", "\"\""
+//            buildConfigField "String", "ZHU_GE_APP_KEY", "\"\""
+
+            // Host & ShareHost & Domain
+            buildConfigField "String", "HOST", "\"http://123.57.2.153:9080\""
+        }
+
+        // --------------------------------- Warning ------------------------------------------
+        //  修改prod这个flavor的名字时（例如prod -> production），需要同时修改com.hxp.mystructure.constant.Constant中的FLAVOR_PROD
+        // --------------------------------- Warning ------------------------------------------
+        product {
+            // The actual minSdkVersion for the application.
+            minSdkVersion 14
+
+            applicationId "com.hxp.mystructure"
+//            manifestPlaceholders = [
+//                    IGEXIN_SDK:"",              // Getui
+//                    PUSH_APPID:"",                                    // Getui
+//                    PUSH_APPKEY:"",                                   // Getui
+//                    PUSH_APPSECRET:"",                                // Getui
+//                    JPUSH_APPKEY:"",                                // JPUSH
+//            ]
+//            buildConfigField "String", "MI_PUSH_APP_ID", "\"\""
+//            buildConfigField "String", "MI_PUSH_APP_KEY", "\"\""
+//            buildConfigField "String", "ZHU_GE_APP_KEY", "\"\""
+
+            // Host & ShareHost & Domain
+            buildConfigField "String", "HOST", "\"http://123.57.2.153:9080\""
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries true
+        // This can improve incremental builds, but clean builds may be slower.
     }
 }
 
@@ -24,6 +96,17 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
     compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.5.0'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.google.android.gms:play-services:10.0.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    developCompile 'com.bugtags.library:bugtags-lib:latest.integration'
+    stageCompile 'com.bugtags.library:bugtags-lib:latest.integration'
 }

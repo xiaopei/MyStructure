@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#ACDBFF</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="color_2_dark_grey">#737373</color>
+    <color name="color_3_dark_grey">#999999</color>
+    <color name="color_4_light_grey">#aaaaaa</color>
+    <color name="color_5_light_grey">#cccccc</color>
+    <color name="color_6_white">#ffffff</color>
+    <color name="color_7_purple">#6f41eb</color>
+    <color name="color_8_light_grey">#9590be</color>
+    <color name="color_9_green">#2fd59c</color>
+    <color name="color_10_light_purple">#976ff0</color>
+    <color name="color_11_blue_green">#26d6c8</color>
+    <color name="color_12_light_grey">#e8e8e8</color>
+    <color name="color_13_light_grey">#f1f2f3</color>
+    <color name="color_14_light_grey">#d8d8e1</color>
+    <color name="color_15_light_grey">#dfdfdf</color>
+    <color name="color_16_light_grey">#f9f9f9</color>
+    <color name="color_17_orange">#fa8c14</color>
+    <color name="color_18_yellow">#f0be32</color>
+    <color name="color_19_rose">#F75993</color>
+
+    <color name="color_1_dark_black">#333333</color>
+    <color name="color_2_grey">#999999</color>
+    <color name="color_3_light_grey">#aaaaaa</color>
+    <color name="color_4_green">#07aa81</color>
+    <color name="color_5_blue">#6681c0</color>
+    <color name="color_6_dark_black">#342c47</color>
+    <color name="color_7_orange">#fe5f4a</color>
+    <color name="color_8_grey">#eeeeee</color>
+    <color name="color_9_grey">#e3e3e3</color>
+    <color name="divider">#e3e3e3</color>
+    <color name="divider_2">#cccccc</color>
 </resources>
